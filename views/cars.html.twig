@@ -69,26 +69,41 @@
 
             <div class="row">
 
-                <!-- Display cars already created -->
+<!-- RESULTS -->
+
+    <!-- Display cars already created -->
                 <div class="col-sm-6">
+                    {% if newcar is not empty %}
+                    <h1>Here is your car!</h1>
+                    <h2>Newest addition shown at top of list</h2>
+                    <ul>
+                        <li><img src="{{ newcar.getImage }}" alt="" /><li>
+                        <h3>{{ newcar.getModel }}</h3>
+                        <li>{{ newcar.getPrice }}</li>
+                        <li>{{ newcar.getMiles }}</li>
+                        <li>{{ newcar.getStatus }}</li>
+                    </ul>
+                    {% endif %}
+
                     <h3>All Cars For Sale</h3>
                     {% if cars is not empty %}
                   <ul>
                       {% for car in cars %}
+                      {% if car != newcar %}
                       <li><img src='{{ car.getImage }}' alt="" /><li>
                       <h3>{{ car.getModel}}</h3>
                       <li>{{ car.getPrice}}</li>
                       <li>{{ car.getMiles}}</li>
                       <li>{{ car.getStatus}}</li>
+                      {% endif %}
                       {% endfor %}
                   </ul>
                     {% endif %}
                 </div>
 
-                <!-- Display cars Matching Form Price Input -->
+    <!-- Display cars Matching Form Price Input -->
                 <div class="col-sm-6">
                     <h3>All Cars Based on your price limit</h3>
-                    <h1>Here are your car results!</h1>
 
                     {% for car in match_cars %}
                     <div class="row">
@@ -96,9 +111,9 @@
                             <h2> {{ car.getModel }}</h2>
                         </div>
                         <div class='col-md-6'>
-                            <p> {{ car.getPrice }}</p>
-                            <p> {{ car.getMiles }}</p>
-                            <img src= "{{ car.getPhoto }}">
+                            <p><img src="{{ car.getImage }}" alt="" /><p>
+                            <p> Price: ${{ car.getPrice }}</p>
+                            <p> Mileage: {{ car.getMiles }}</p>
                         </div>
                     </div>
                     {% endfor %}

@@ -14,7 +14,7 @@
     'twig.path' => __DIR__.'/../views'
     ));
 
-    // Home Page
+    // Home: Submit Car Form Page
     $app->get("/", function() use ($app) {
         return $app['twig']->render('cars.html.twig', array('cars' => Car::getAll()));
     });
@@ -23,7 +23,7 @@
     $app->post("/cars", function() use ($app) {
           $cars = new Car($_POST['image'], $_POST['make'], $_POST['price'], $_POST['miles'], $_POST['status']);
           $cars->save();
-          return $app['twig']->render('created_car.html.twig', array('newcar' => $cars));
+          return $app['twig']->render('cars.html.twig', array('cars' => Car::getAll(), 'newcar' => $cars));
     });
 
     // Searching by Price Page
