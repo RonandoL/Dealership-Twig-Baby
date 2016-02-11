@@ -1,22 +1,47 @@
 <?php
     class Car
     {
-        public $make_model;
-        public $price;
-        public $miles;
-        public $status;
-        public $image;
+        private $make_model;
+        private $price;
+        private $miles;
+        private $status;
+        private $image;
 
-        // Object Constructor: runs automatically when making Car object
-          // an argument for each property, creates new cars with 1 line of code
-        function __construct($make_model, $price, $miles, $image, $status="new")
+        function __construct($car_model, $car_price, $car_miles, $car_image, $car_status="new")
         {
-          $this->make_model = $make_model;
-          $this->price = $price;
-          $this->miles = $miles;
-          $this->image = $image;
-          $this->status = $status;
+          $this->make_model = $car_model;
+          $this->price = $car_price;
+          $this->miles = $car_miles;
+          $this->image = $car_image;
+          $this->status = $car_status;
         }
+
+        function getModel()
+        {
+            return $this->make_model;
+        }
+
+        function getPrice()
+        {
+            return $this->price;
+        }
+
+        function getMiles()
+        {
+            return $this->miles;
+        }
+
+        function getImage()
+        {
+            return $this->image;
+        }
+
+        function getStatus()
+        {
+            return $this->status;
+        }
+
+
     }
 
 
