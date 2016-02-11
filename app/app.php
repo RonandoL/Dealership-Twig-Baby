@@ -41,7 +41,7 @@
     // Delete Cars Page
     $app->post("/delete_cars", function() use ($app) {
         Car::deleteAll();
-        return $app['twig']->render('delete_cars.html.twig');
+        return $app['twig']->render('cars.html.twig');
     });
 
 

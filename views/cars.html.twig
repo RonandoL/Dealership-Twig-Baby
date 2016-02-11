@@ -14,8 +14,9 @@
             </div>  <!-- /JUMBOTRON -->
 
         <!-- Row: 1 -->
-            <div class='row'>
+            <div class='row boxy'>
               <div class='col-sm-6'>
+                  <h2>Submit your car for sale</h2>
                   <form action='/cars' method='post'>
 
                       <div class='form-group'>
@@ -56,6 +57,7 @@
 
             <!-- BUY A CAR -->
             <div class="col-sm-6">
+                <h2>Search for cars based on price</h2>
                 <form action='/car_matches'>
                     <div class='form-group'>
                         <label for=''>Max price you want to pay:</label>
@@ -65,6 +67,7 @@
                     <button class='btn btn-info' type='submit' name='button'>Gimme some sugar baby</button>
                 </form>
             </div>
+
           </div>  <!-- /Row -->
 
             <div class="row">
@@ -78,11 +81,12 @@
                     <h2>Newest addition shown at top of list</h2>
                     <ul>
                         <li><img src="{{ newcar.getImage }}" alt="" /><li>
-                        <h3>{{ newcar.getModel }}</h3>
-                        <li>{{ newcar.getPrice }}</li>
-                        <li>{{ newcar.getMiles }}</li>
-                        <li>{{ newcar.getStatus }}</li>
+                        <h3><strong>Model: </strong>{{ newcar.getModel }}</h3>
+                        <li><strong>Price: </strong>${{ newcar.getPrice }}</li>
+                        <li><strong>Miles: </strong>{{ newcar.getMiles }}</li>
+                        <li><strong>Status: </strong>{{ newcar.getStatus }}</li>
                     </ul>
+                    <hr>
                     {% endif %}
 
                     <h3>All Cars For Sale</h3>
@@ -91,10 +95,10 @@
                       {% for car in cars %}
                       {% if car != newcar %}
                       <li><img src='{{ car.getImage }}' alt="" /><li>
-                      <h3>{{ car.getModel}}</h3>
-                      <li>{{ car.getPrice}}</li>
-                      <li>{{ car.getMiles}}</li>
-                      <li>{{ car.getStatus}}</li>
+                      <h3><strong>Model: </strong>{{ car.getModel}}</h3>
+                      <li><strong>Price: </strong>${{ car.getPrice}}</li>
+                      <li><strong>Miles: </strong>{{ car.getMiles}}</li>
+                      <li><strong>Status: </strong>{{ car.getStatus}}</li>
                       {% endif %}
                       {% endfor %}
                   </ul>
@@ -112,8 +116,8 @@
                         </div>
                         <div class='col-md-6'>
                             <p><img src="{{ car.getImage }}" alt="" /><p>
-                            <p> Price: ${{ car.getPrice }}</p>
-                            <p> Mileage: {{ car.getMiles }}</p>
+                            <p><strong>Price: </strong>${{ car.getPrice }}</p>
+                            <p><strong>Mileage: </strong>{{ car.getMiles }}</p>
                         </div>
                     </div>
                     {% endfor %}
