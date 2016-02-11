@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Here are th cars!</title>
+    </head>
+
+        <body>
+          <div class='container'>
+            <div class='jumbotron'>
+              <h1>Dealership</h1>
+              <p>Lorem ipsum dolor sit amet,</p>
+            </div>  <!-- /JUMBOTRON -->
+
+        <!-- Row: 1 -->
+            <div class='row'>
+              <div class='col-sm-6'>
+                    {% if cars is not empty %}
+                  <ul>
+                      {% for car in cars %}
+                      <li>{{ car.getImage}}</li>
+                      <h3>{{ car.getModel}}</h3>
+                      <li>{{ car.getPrice}}</li>
+                      <li>{{ car.getMiles}}</li>
+                      <li>{{ car.getStatus}}</li>
+                      <li>{{ bikes }}</li>
+                      {% endfor %}
+                  </ul>
+                    {% endif %}
+
+                  <form action='/cars' method='post'>
+
+                      <div class='form-group'>
+                        <label for='make'>Enter your car make/model:</label>
+                        <input id='make' name='make' type='text'>
+                      </div>
+
+                      <div class='form-group'>
+                        <label for='image'>Enter image URL:</label>
+                        <input id='image' name='image' type='number'>
+                      </div>
+
+                      <div class='form-group'>
+                        <label for='price'>Enter the price:</label>
+                        <input id='price' name='price' type='text'>
+                      </div>
+
+                      <div class='form-group'>
+                        <label for='miles'>Enter the mileage:</label>
+                        <input id='miles' name='miles' type='text'>
+                      </div>
+
+                      <div class='form-group'>
+                        <label for='status'>New or Used?:</label>
+                        <input id='status' name='status' type='text'>
+                      </div>
+
+
+                      <button type='submit'>Add your car!</button>
+                  </form>
+
+
+
+              </div>  <!-- /col-sm-12 -->
+            </div>  <!-- /Row -->
+
+          </div>  <!-- /Container -->
+
+
+
+
+        </body>
+</html>
