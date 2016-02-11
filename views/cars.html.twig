@@ -19,7 +19,7 @@
                     {% if cars is not empty %}
                   <ul>
                       {% for car in cars %}
-                      <li>{{ car.getImage}}</li>
+                      <li><img src='{{ car.getImage }}' alt="" /><li>
                       <h3>{{ car.getModel}}</h3>
                       <li>{{ car.getPrice}}</li>
                       <li>{{ car.getMiles}}</li>
@@ -38,7 +38,7 @@
 
                       <div class='form-group'>
                         <label for='image'>Enter image URL:</label>
-                        <input id='image' name='image' type='number'>
+                        <input id='image' name='image' type='text'>
                       </div>
 
                       <div class='form-group'>
@@ -58,7 +58,12 @@
 
 
                       <button type='submit'>Add your car!</button>
-                  </form>
+                </form>
+
+                <!-- DELETE CARS -->
+                <form action='/delete_cars' method='post'>
+                    <button type='submit'>Clear</button>
+                </form>
 
 
 

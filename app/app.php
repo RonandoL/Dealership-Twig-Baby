@@ -17,11 +17,19 @@
     // Home Page
     $app->get("/", function() use ($app) {
 
-        return $app['twig']->render('cars.html.twig', array('cars' => Car::getAll(), 'bikes' => "i like bikes, yo!" ));
-
+        return $app['twig']->render('cars.html.twig', array('cars' => Car::getAll()));
     });
 
+    $app->post("/cars", function() use ($app) {
+          $cars = new Car($_POST['make'], $_POST['image'], $_POST['price'], $_POST['miles'], $_POST['status']);
+          $cars->save();
+          return $app['twig']->render('created_car.html.twig', array('newcar' => $cars));
+      });
 
+          $app->post("/delete_cars", function() use ($app) {
+          Car::deleteAll();
+          return $app['twig']->render('delete_cars.html.twig');
+      });
 
     return $app;
 ?>
