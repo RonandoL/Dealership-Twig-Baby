@@ -42,6 +42,11 @@
             return $this->status;
         }
 
+        function worthBuying($max_price)
+        {
+            return ($this->price <= ($max_price));
+        }
+
         function save()
         {
         array_push($_SESSION['list_of_cars'], $this);
