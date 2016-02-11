@@ -16,19 +16,6 @@
         <!-- Row: 1 -->
             <div class='row'>
               <div class='col-sm-6'>
-                    {% if cars is not empty %}
-                  <ul>
-                      {% for car in cars %}
-                      <li><img src='{{ car.getImage }}' alt="" /><li>
-                      <h3>{{ car.getModel}}</h3>
-                      <li>{{ car.getPrice}}</li>
-                      <li>{{ car.getMiles}}</li>
-                      <li>{{ car.getStatus}}</li>
-                      <li>{{ bikes }}</li>
-                      {% endfor %}
-                  </ul>
-                    {% endif %}
-
                   <form action='/cars' method='post'>
 
                       <div class='form-group'>
@@ -65,6 +52,19 @@
                     <button type='submit'>Clear</button>
                 </form>
 
+                <!-- Display cars already created -->
+                {% if cars is not empty %}
+              <ul>
+                  {% for car in cars %}
+                  <li><img src='{{ car.getImage }}' alt="" /><li>
+                  <h3>{{ car.getModel}}</h3>
+                  <li>{{ car.getPrice}}</li>
+                  <li>{{ car.getMiles}}</li>
+                  <li>{{ car.getStatus}}</li>
+                  <li>{{ bikes }}</li>
+                  {% endfor %}
+              </ul>
+                {% endif %}
 
 
               </div>  <!-- /col-sm-12 -->

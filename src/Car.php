@@ -7,7 +7,7 @@
         private $status;
         private $image;
 
-        function __construct($car_model, $car_price, $car_miles, $car_image, $car_status="new")
+        function __construct($car_image, $car_model, $car_price, $car_miles, $car_status="new")
         {
           $this->make_model = $car_model;
           $this->price = $car_price;
@@ -21,6 +21,11 @@
             return $this->make_model;
         }
 
+        function getImage()
+        {
+            return $this->image;
+        }
+
         function getPrice()
         {
             return $this->price;
@@ -31,10 +36,6 @@
             return $this->miles;
         }
 
-        function getImage()
-        {
-            return $this->image;
-        }
 
         function getStatus()
         {

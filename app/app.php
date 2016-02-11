@@ -21,7 +21,7 @@
     });
 
     $app->post("/cars", function() use ($app) {
-          $cars = new Car($_POST['make'], $_POST['image'], $_POST['price'], $_POST['miles'], $_POST['status']);
+          $cars = new Car($_POST['image'], $_POST['make'], $_POST['price'], $_POST['miles'], $_POST['status']);
           $cars->save();
           return $app['twig']->render('created_car.html.twig', array('newcar' => $cars));
       });
