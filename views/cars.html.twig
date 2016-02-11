@@ -45,26 +45,39 @@
                       </div>
 
 
-                      <button type='submit'>Add your car!</button>
+                      <button class='btn btn-warning' type='submit'>Add your car!</button>
                 </form>
 
                 <!-- DELETE CARS -->
                 <form action='/delete_cars' method='post'>
-                    <button type='submit'>Clear</button>
+                    <button class='btn btn-danger' type='submit'>Clear</button>
                 </form>
 
             </div>  <!-- /col-sm-6 -->
 
-            <!-- BUY A CAR -->
+    <!-- SEAR BY PRICE =================== -->
             <div class="col-sm-6">
                 <h2>Search for cars based on price</h2>
                 <form action='/car_matches'>
                     <div class='form-group'>
                         <label for=''>Max price you want to pay:</label>
-                        <input class='form-control' type='text' name='matchPrice' value=''>
+                        <input class='form-control' type='number' name='matchPrice' value=''>
                     </div>
 
                     <button class='btn btn-info' type='submit' name='button'>Gimme some sugar baby</button>
+                </form>
+            </div>
+
+    <!-- SEAR BY Make/Model -->
+            <div class="col-sm-6">
+                <h2>Search for cars based on Name</h2>
+                <form action='/make_model_matches'>
+                    <div class='form-group'>
+                        <label for=''>Search Cars by Name:</label>
+                        <input class='form-control' type='text' name='matchMake' value=''>
+                    </div>
+
+                    <button class='btn btn-success' type='submit' name='button'>Search by Make</button>
                 </form>
             </div>
 
@@ -72,7 +85,7 @@
 
             <div class="row">
 
-<!-- RESULTS -->
+<!-- RESULTS ============================================== -->
 
     <!-- Display cars already created -->
                 <div class="col-sm-6">
