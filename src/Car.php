@@ -50,7 +50,7 @@
 
         function matchedMake($match_make)
         {
-            return strtolower($this->getModel() == strtolower($match_make));
+            return strtolower($this->getModel()) == strtolower($match_make);
         }
 
         function save()
