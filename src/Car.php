@@ -42,9 +42,15 @@
             return $this->status;
         }
 
+// worthBuying matchedMake
         function worthBuying($max_price)
         {
             return ($this->price <= ($max_price));
+        }
+
+        function matchedMake($match_make)
+        {
+            return strtolower($this->getModel() == strtolower($match_make));
         }
 
         function save()

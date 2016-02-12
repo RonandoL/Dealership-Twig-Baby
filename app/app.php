@@ -26,7 +26,7 @@
           return $app['twig']->render('cars.html.twig', array('cars' => Car::getAll(), 'newcar' => $cars));
     });
 
-    // Searching by Price Page
+    // Searching by Price
     $app->get("/car_matches", function() use ($app){
         $cars = Car::getAll();
         $cars_matching_search = array();
@@ -39,15 +39,15 @@
     });
 
     // Searching by Make/Model
-    $app->get("/car_matches", function() use ($app){
+    $app->get("/make_model_matches", function() use ($app){
         $cars = Car::getAll();
-        $cars_matching_search = array();
+        $cars_matching_make = array();
         foreach ($cars as $car) {
-            if ($car->worthBuying(($_GET["matchPrice"]))) {
-                array_push($cars_matching_search, $car);
+            if ($car->matchedMake($_GET['matchMake'])) {
+                array_push($cars_matching_make, $car);
             }
         }
-        return $app['twig']->render('cars.html.twig', array('cars' => $cars, 'match_cars' => $cars_matching_search));
+        return $app['twig']->render('cars.html.twig', array('cars' => $cars, 'match_models' => $cars_matching_make));
     });
 
 
@@ -56,9 +56,6 @@
         Car::deleteAll();
         return $app['twig']->render('cars.html.twig');
     });
-
-
-
 
     return $app;
 ?>
